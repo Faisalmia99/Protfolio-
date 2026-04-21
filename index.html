@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faisal Mia | Premium Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            background: rgba(15, 23, 42, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        header h1 {
+            color: #38bdf8;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: .3s;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 120px 8% 60px;
+            gap: 40px;
+        }
+
+        .left {
+            width: 55%;
+            animation: leftslide 1.2s ease forwards;
+        }
+
+        .right {
+            width: 45%;
+            text-align: center;
+            animation: rightslide 1.2s ease forwards;
+        }
+
+        .left h2 {
+            font-size: 50px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .left h2 span {
+            color: #38bdf8;
+        }
+
+        .left p {
+            font-size: 20px;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: .3s;
+            border: 2px solid #38bdf8;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #38bdf8;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .right img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+            border: 2px solid rgba(56, 189, 248, 0.3);
+        }
+
+        /* Common Section Style */
+        section {
+            padding: 100px 8%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 50px;
+            color: #38bdf8;
+            position: relative;
+        }
+
+        .title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: #38bdf8;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Grid Layouts */
+        .services, .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: .4s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #38bdf8;
+            background: #24344d;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #38bdf8;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            background: #1e293b;
+            padding: 50px;
+            border-radius: 25px;
+            max-width: 700px;
+            margin: auto;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .contact a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #0b1120;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Animations */
+        @keyframes leftslide {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes rightslide {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            header {
+                padding: 15px 5%;
+                justify-content: center;
+            }
+
+            nav {
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(30, 41, 59, 0.95);
+                padding: 12px 25px;
+                border-radius: 50px;
+                display: flex;
+                gap: 15px;
+                width: 90%;
+                justify-content: center;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(56, 189, 248, 0.3);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            }
+
+            nav a {
+                margin: 0;
+                font-size: 13px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 100px;
+            }
+
+            .left, .right {
+                width: 100%;
+            }
+
+            .left h2 {
+                font-size: 35px;
+            }
+
+            .btn-group {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .right img {
+                width: 220px;
+                height: 220px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Faisal Mia</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="left">
+        <h2>Hi, I'm <span>Faisal Mia</span></h2>
+        <p>
+            Professional Facebook Marketer & <br>
+            Digital Growth Expert.
+        </p>
+        <div class="btn-group">
+            <a href="https://www.facebook.com/Faisalmia2/" target="_blank" class="btn">Facebook</a>
+            <a href="https://wa.me/8801625646099" target="_blank" class="btn btn-outline">WhatsApp</a>
+        </div>
+    </div>
+
+    <div class="right">
+        <img src="profile.jpg" alt="Faisal Mia">
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="title">My Services</h2>
+    <div class="services">
+        <div class="card">
+            <h3>Facebook Ads</h3>
+            <p>Sales, Leads & Conversion Campaign Setup with targeted audience research.</p>
+        </div>
+        <div class="card">
+            <h3>Instagram Ads</h3>
+            <p>Organic Growth & Paid Promotion to scale your brand visibility.</p>
+        </div>
+        <div class="card">
+            <h3>Pixel & CAPI</h3>
+            <p>Meta Pixel + Conversion API (CAPI) Setup for accurate data tracking.</p>
+        </div>
+        <div class="card">
+            <h3>SMS Marketing</h3>
+            <p>Bulk SMS Campaign with high delivery and response rates.</p>
+        </div>
+        <div class="card">
+            <h3>Video Editing</h3>
+            <p>Professional Reels & Short Ads Video that capture attention instantly.</p>
+        </div>
+        <div class="card">
+            <h3>Page Growth</h3>
+            <p>Boost Real Followers & Brand Awareness using organic strategies.</p>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <h2 class="title">Success Stories</h2>
+    <div class="portfolio">
+        <div class="card">
+            <h3>Campaign Result</h3>
+            <p>Successfully achieved 4x ROAS for an E-commerce client.</p>
+        </div>
+        <div class="card">
+            <h3>Lead Generation</h3>
+            <p>1000+ High-quality Leads generated for local businesses.</p>
+        </div>
+        <div class="card">
+            <h3>Creative Ads</h3>
+            <p>Designed video ads with 5% higher CTR than industry average.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="title">Get In Touch</h2>
+    <div class="contact">
+        <p>📍 Mymensingh, Bangladesh</p><br>
+        <p>📱 WhatsApp: <a href="https://wa.me/8801625646099">01625646099</a></p><br>
+        <p>📘 Facebook: <a href="https://www.facebook.com/Faisalmia2/" target="_blank">Faisal Mia</a></p>
+    </div>
+</section>
+
+<footer>
+    © 2026 Faisal Mia | Crafted with Passion
+</footer>
+
+</body>
+</html>
